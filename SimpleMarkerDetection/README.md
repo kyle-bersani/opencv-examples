@@ -1,5 +1,5 @@
 ## Overview
 
-This folder details simple utilities for the detection and filtering of IDs
+This folder is meant for experimenting with the use of multiple sized markers on an Aruco Board
 
 
