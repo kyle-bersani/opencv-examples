@@ -12,13 +12,12 @@ import cv2.aruco as aruco
 
 
 # Constant parameters used in Aruco methods
-ARUCO_PARAMETERS = aruco.DetectorParameters_create()
-ARUCO_DICT = aruco.Dictionary_get(aruco.DICT_6X6_1000)
-
+ARUCO_PARAMETERS = aruco.DetectorParameters()
+ARUCO_DICT = aruco.getPredefinedDictionary(aruco.DICT_6X6_1000)
+markersX=2
+markersY=2
 # Create grid board object we're using in our stream
-board = aruco.GridBoard_create(
-        markersX=2,
-        markersY=2,
+board = aruco.GridBoard([markersX,markersY],
         markerLength=0.09,
         markerSeparation=0.01,
         dictionary=ARUCO_DICT)

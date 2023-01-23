@@ -25,15 +25,13 @@ else:
         exit()
 
 # Constant parameters used in Aruco methods
-ARUCO_PARAMETERS = aruco.DetectorParameters_create()
-ARUCO_DICT = aruco.Dictionary_get(aruco.DICT_5X5_50)
+ARUCO_PARAMETERS = aruco.DetectorParameters()
+ARUCO_DICT = aruco.getPredefinedDictionary(aruco.DICT_5X5_50)
 CHARUCOBOARD_ROWCOUNT=7
 CHARUCOBOARD_COLCOUNT=5
 
 # Create grid board object we're using in our stream
-CHARUCO_BOARD = aruco.CharucoBoard_create(
-        squaresX=CHARUCOBOARD_COLCOUNT,
-        squaresY=CHARUCOBOARD_ROWCOUNT,
+CHARUCO_BOARD = aruco.CharucoBoard([CHARUCOBOARD_COLCOUNT,CHARUCOBOARD_ROWCOUNT],
         squareLength=0.04,
         markerLength=0.02,
         dictionary=ARUCO_DICT)

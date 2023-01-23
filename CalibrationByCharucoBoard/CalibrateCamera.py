@@ -1,7 +1,3 @@
-# System information:
-# - Linux Mint 18.1 Cinnamon 64-bit
-# - Python 2.7 with OpenCV 3.2.0
-
 import numpy
 import cv2
 from cv2 import aruco
@@ -12,12 +8,10 @@ import glob
 # ChAruco board variables
 CHARUCOBOARD_ROWCOUNT = 7
 CHARUCOBOARD_COLCOUNT = 5 
-ARUCO_DICT = aruco.Dictionary_get(aruco.DICT_5X5_1000)
+ARUCO_DICT = aruco.getPredefinedDictionary(aruco.DICT_5X5_1000)
 
 # Create constants to be passed into OpenCV and Aruco methods
-CHARUCO_BOARD = aruco.CharucoBoard_create(
-        squaresX=CHARUCOBOARD_COLCOUNT,
-        squaresY=CHARUCOBOARD_ROWCOUNT,
+CHARUCO_BOARD = aruco.CharucoBoard([CHARUCOBOARD_COLCOUNT,CHARUCOBOARD_ROWCOUNT],
         squareLength=0.04,
         markerLength=0.02,
         dictionary=ARUCO_DICT)
@@ -29,10 +23,8 @@ image_size = None # Determined at runtime
 
 
 # This requires a set of images or a video taken with the camera you want to calibrate
-# I'm using a set of images taken with the camera with the naming convention:
-# 'camera-pic-of-charucoboard-<NUMBER>.jpg'
 # All images used should be the same size, which if taken with the same camera shouldn't be a problem
-images = glob.glob('./camera-pic-of-charucoboard-*.jpg')
+images = glob.glob('./*.jpg')
 
 # Loop through images glob'ed
 for iname in images:

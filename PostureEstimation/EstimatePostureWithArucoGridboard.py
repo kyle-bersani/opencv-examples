@@ -25,13 +25,13 @@ else:
         exit()
 
 # Constant parameters used in Aruco methods
-ARUCO_PARAMETERS = aruco.DetectorParameters_create()
-ARUCO_DICT = aruco.Dictionary_get(aruco.DICT_5X5_50)
+ARUCO_PARAMETERS = aruco.DetectorParameters()
+ARUCO_DICT = aruco.getPredefinedDictionary(aruco.DICT_5X5_50)
 
+markersX=5
+markersY=7
 # Create grid board object we're using in our stream
-board = aruco.GridBoard_create(
-        markersX=5,
-        markersY=7,
+board = aruco.GridBoard([markersX,markersY],
         markerLength=0.04,
         markerSeparation=0.01,
         dictionary=ARUCO_DICT)
