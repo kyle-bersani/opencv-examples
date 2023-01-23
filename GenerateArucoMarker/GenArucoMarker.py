@@ -3,7 +3,7 @@ import cv2
 import cv2.aruco as aruco
 
 # Select type of aruco marker (size)
-aruco_dict = aruco.Dictionary_get(aruco.DICT_5X5_1000)
+aruco_dict = aruco.getPredefinedDictionary(aruco.DICT_5X5_1000)
 
 # Create an image from the marker
 # second param is ID number
